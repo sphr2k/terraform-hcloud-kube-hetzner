@@ -101,20 +101,15 @@ variable "metrics_server_enabled" {
   description = "Whether to enable or disbale k3s mertric server"
 }
 
-variable "initial_k3s_channel" {
+variable "initial_k3s_version" {
   type        = string
   default     = "stable"
-  description = "Allows you to specify an initial k3s channel"
-
-  validation {
-    condition     = contains(["stable", "latest", "testing", "v1.16", "v1.17", "v1.18", "v1.19", "v1.20", "v1.21", "v1.22", "v1.23", "v1.24"], var.initial_k3s_channel)
-    error_message = "The initial k3s channel must be one of stable, latest or testing."
-  }
+  description = "Allows you to specify an initial k3s version"
 }
 
 variable "automatically_upgrade_k3s" {
   type        = bool
-  default     = true
+  default     = false
   description = "Whether to automatically upgrade k3s based on the selected channel"
 }
 
